@@ -22,7 +22,7 @@ az acr credential show -n <your-registry-name>
 save them on file "azurecontainerregistryxxxx101.pw".
 ### Prepare Jenkins server
 
-1. Deploy a [Jenkins Master](https://aka.ms/jenkins-on-azure) on Azure
+1. Deploy a Jenkins on Azure VM
 2. Connect to the server with SSH and install the build tools:
    ```
    sudo apt-get install git maven docker.io
