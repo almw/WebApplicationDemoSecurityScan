@@ -1,5 +1,9 @@
 
 ##  Pipeline Docker Container Build and Security Scan
+This project code is a sample asp.net core web application that includes Dockerfile and Jenkins files with instructions to configure a docker container, build, perform security scan using aquasec/trivy and deploy the application on existing App Service using Jenkins CI/CD tool.
+
+There is also a Terraform file for deploying Windows Web Server Azure Virtual machine and enable Internet information Service (IIS) to demonstrate use of automation on infrastructure configuration.
+
 ### Create Azure Container Registry
 1. Login your Azure CLI, and set your subscription id
 ```bash
