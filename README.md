@@ -85,6 +85,7 @@ Terraform files Ref. [microsoft.com](https://www.microsoft.com/en-us/)
 - [variables.tf](./variables.tf)
 - [utputs.tf](./outputs.tf)
 
+Terraform commands to initialize, apply and destroy the demo configuration management automation
 ```sh
 terraform init -upgrade
 terraform plan -out main.tfplan
