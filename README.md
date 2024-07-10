@@ -68,7 +68,7 @@ docker image tag azurecontainerregistryxxxx101/webapplicationdemosecurityscan:la
 docker image push azurecontainerregistryxxxx101.azurecr.io/webapplicationdemosecurityscan:latest
 ```
 
-### Part 2.2.2
+### Part 2.2
 Kubernetes YAML configuration file ["demo-security-context.yaml"](./demo-security-context.yaml) includes securityContext settings.
 ```bash
 # Create the Pod:
