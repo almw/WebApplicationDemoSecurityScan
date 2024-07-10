@@ -79,7 +79,7 @@ ps
 ```
 
 ## Part 3.1 Configuration Management with Terraform
-Ref. files
+Terraform files Ref. [microsoft.com](https://www.microsoft.com/en-us/)
 - [providers.tf](./providers.tf)
 - [main.tf](./main.tf)
 - [variables.tf](./variables.tf)
@@ -92,4 +92,4 @@ terraform apply main.tfplan
 terraform destroy
 
 ```
-Ref. [microsoft.com](https://www.microsoft.com/en-us/)
+
