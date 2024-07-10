@@ -93,8 +93,6 @@ Terraform deployment of Windows IIS web server on a Azure virtual machine code i
 - [variables.tf](./variables.tf)
 - [utputs.tf](./outputs.tf)
 
-Terraform files Ref. [microsoft.com](https://www.microsoft.com/en-us/)
-
 Terraform commands to initialize, apply and destroy the demo configuration management automation
 ```sh
 terraform init -upgrade
@@ -103,4 +101,6 @@ terraform apply main.tfplan
 terraform destroy
 
 ```
+Ref.
+[microsoft.com](https://www.microsoft.com/en-us/)
 
