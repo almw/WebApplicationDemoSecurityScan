@@ -84,8 +84,8 @@ kubectl exec -it demo-security-context -- sh
 # Evaluate security context inside the container:
 ps
 ```
-
-## Part 3.1 Configuration Management with Terraform
+## Part 3.0 CI/CD Pipeline Setup
+### Part 3.1 Configuration Management with Terraform
 3.1. Configuration Management with Terraform
 Terraform deployment of Windows IIS web server on a Azure virtual machine code is on the files, providers.tf, main.tf, variables.tf and outputs.tf .
 - [providers.tf](./providers.tf)
@@ -101,6 +101,9 @@ terraform apply main.tfplan
 terraform destroy
 
 ```
+### 3.2. CI/CD Pipeline Configuration
+Jenkins pipeline configuration [Jenkinsfile](./Jenkinsfile) that includes stages for building, testing, security scanning and deploying a sample application to preexisting Azure Web App Service.
+
 Ref.
 [microsoft.com](https://www.microsoft.com/en-us/)
 
