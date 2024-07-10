@@ -24,7 +24,7 @@ save them on file "azurecontainerregistryxxxx101.pw".
 
 1. Deploy a Jenkins on Azure VM
 2. Connect to the server with SSH and install the build tools:
-   ```
+   ```bash
    sudo apt-get install git maven docker.io
    ```
 3. Install the plugins in Jenkins. Click 'Manage Jenkins' -> 'Manage Plugins' -> 'Available', then search and install the following plugins: EnvInject, Azure App Service Plugin.
@@ -32,7 +32,6 @@ save them on file "azurecontainerregistryxxxx101.pw".
 5. Add a Credential in type "Username with password" with your account of docker registry.
 
 ### Create job
-
 1. Add a new job in type "Pipeline".
 2. Enable "Prepare an environment for the run", and put the following environment variables
    in "Properties Content":
@@ -50,7 +49,6 @@ save them on file "azurecontainerregistryxxxx101.pw".
 4. Fill in the SCM repo url and script path."https://github.com/almw/WebApplicationDemoSecurityScan/blob/main/Jenkinsfile"
 
 ## Part 2.0 Build and Deploy Docker Container Image to Azure Web App for Containers
-
 1. Verify you can build and run your project successfully in your local environment.
 ```bash
 # Assumptions, Preexisting Azure Container Registry(ACR) “azurecontainerregistryxxxx101”
