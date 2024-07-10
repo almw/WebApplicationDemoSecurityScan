@@ -93,10 +93,3 @@ terraform destroy
 
 ```
 Ref. [microsoft.com](https://www.microsoft.com/en-us/)
-
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/almw/WebApplicationDemoSecurityScan.git
-git push -u origin main
