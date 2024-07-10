@@ -61,7 +61,7 @@ docker run -it --rm -p  8000:8080 --name webapplicationdemosecurityscan azurecon
 2. Run jenkins job
 3. Navigate to the website from your favorite browser. You will see this app successfully running on Azure Web App for Containers.
 
-### Part 2.1
+### Part 2.1 Dockerfile
 [Dockerfile](./Dockerfile)
 ```bash
 # ACR login using credentials stored on file "azurecontainerregistryxxxx101.pw"
@@ -72,7 +72,7 @@ docker image tag azurecontainerregistryxxxx101/webapplicationdemosecurityscan:la
 docker image push azurecontainerregistryxxxx101.azurecr.io/webapplicationdemosecurityscan:latest
 ```
 
-### Part 2.2
+### Part 2.2 securityContext Kubernetes YAML
 Kubernetes YAML configuration file ["demo-security-context.yaml"](./demo-security-context.yaml) includes securityContext settings.
 ```bash
 # Create the Pod:
@@ -99,9 +99,8 @@ terraform init -upgrade
 terraform plan -out main.tfplan
 terraform apply main.tfplan
 terraform destroy
-
 ```
-### 3.2. CI/CD Pipeline Configuration
+### Part 3.2 CI/CD Pipeline Configuration
 Jenkins pipeline configuration [Jenkinsfile](./Jenkinsfile) that includes stages for building, testing, security scanning and deploying a sample application to preexisting Azure Web App Service.
 
 Ref.
