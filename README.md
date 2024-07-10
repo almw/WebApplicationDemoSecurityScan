@@ -45,7 +45,7 @@ save them on file "azurecontainerregistryxxxx101.pw".
 3. Choose "Pipeline script from SCM" in "Pipeline" -> "Definition" or use [Jenkinsfile](./Jenkinsfile)
 4. Fill in the SCM repo url and script path."https://github.com/almw/WebApplicationDemoSecurityScan/blob/main/Jenkinsfile"
 
-## Build and Deploy Docker Container Image to Azure Web App for Containers
+## Part 2.0 Build and Deploy Docker Container Image to Azure Web App for Containers
 
 1. Verify you can build and run your project successfully in your local environment.
 ```bash
