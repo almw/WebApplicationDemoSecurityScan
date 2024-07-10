@@ -10,11 +10,12 @@ az account clear
 az login
 az account set -s <your-subscription-id>
  ```
-2. Create Azure Container Registry(ACR) & obtain ACR credentials and save them on file "azurecontainerregistryxxxx101.pw".
+2. Create Azure Container Registry(ACR) & obtain ACR credentials and
 ```bash
 az acr create -n <your-registry-name> -g <your-resource-group-name> --sku <sku-name> --admin-enabled true
 az acr credential show -n <your-registry-name>
 ```
+save them on file "azurecontainerregistryxxxx101.pw".
 ### Prepare Jenkins server
 
 1. Deploy a [Jenkins Master](https://aka.ms/jenkins-on-azure) on Azure
@@ -42,48 +43,53 @@ az acr credential show -n <your-registry-name>
     DOCUMENTDB_DBNAME=[your documentdb databasename]
     ```
 3. Choose "Pipeline script from SCM" in "Pipeline" -> "Definition" or use [Jenkinsfile](./Jenkinsfile)
-4. Fill in the SCM repo url and script path."https://github.com/almw/WebApplicationDemoSecurityScan.git" branch "master"
+4. Fill in the SCM repo url and script path."https://github.com/almw/WebApplicationDemoSecurityScan/blob/main/Jenkinsfile"
 
 ## Build and Deploy Docker Container Image to Azure Web App for Containers
 
-1. Verify you can run your project successfully in your local environment.
-2. Run jenkins job.
-3. Navigate to the website from your favorite browser. You will see this app successfully running on Azure Web App for Containers.
+1. Verify you can build and run your project successfully in your local environment.
 ```bash
 # Assumptions, Preexisting Azure Container Registry(ACR) “azurecontainerregistryxxxx101”
 docker build . -t azurecontainerregistryxxxx101/webapplicationdemosecurityscan
 docker run -it --rm -p  8000:8080 --name webapplicationdemosecurityscan azurecontainerregistryxxxx101/webapplicationdemosecurityscan
 # ACR Lodocker login gin
 ```
-### Part 2.1
-[Dockerfile](./Dockerfile )
-```bash
+2. Run jenkins job
+3. Navigate to the website from your favorite browser. You will see this app successfully running on Azure Web App for Containers.
 
+### Part 2.1
+[Dockerfile](./Dockerfile)
+```bash
+# ACR login using credentials stored on file "azurecontainerregistryxxxx101.pw"
 cat ~/azurecontainerregistryxxxx101.pw | docker login azurecontainerregistryxxxx101.azurecr.io --username azurecontainerregistryxxxx101 -password-stdin
 # docker image tagging
 docker image tag azurecontainerregistryxxxx101/webapplicationdemosecurityscan:latest azurecontainerregistryxxxx101.azurecr.io/webapplicationdemosecurityscan:latest
-# docker image push
+# docker image push to ACR
 docker image push azurecontainerregistryxxxx101.azurecr.io/webapplicationdemosecurityscan:latest
 ```
 
-### Part 2.2.b
+### Part 2.2.2
 Kubernetes YAML configuration file ["demo-security-context.yaml"](./demo-security-context.yaml) includes securityContext settings.
 ```bash
 # Create the Pod:
-kubectl apply -f demo-security-context.yaml
+kubectl apply -f .demo-security-context.yaml
 # Verify that the Pod's Container is running:
 kubectl get pod demo-security-context
 # Get a shell to the running Container:
 kubectl exec -it demo-security-context -- sh
+# Evaluate security context inside the container:
 ps
 ```
 
 ## Part 3.1 Configuration Management with Terraform
-Terraform files Ref. [microsoft.com](https://www.microsoft.com/en-us/)
+3.1. Configuration Management with Terraform
+Terraform deployment of Windows IIS web server on a Azure virtual machine code is on the files, providers.tf, main.tf, variables.tf and outputs.tf .
 - [providers.tf](./providers.tf)
 - [main.tf](./main.tf)
 - [variables.tf](./variables.tf)
 - [utputs.tf](./outputs.tf)
+
+Terraform files Ref. [microsoft.com](https://www.microsoft.com/en-us/)
 
 Terraform commands to initialize, apply and destroy the demo configuration management automation
 ```sh
